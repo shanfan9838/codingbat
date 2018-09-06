@@ -1,0 +1,36 @@
+/**
+Given three ints, a b c, one of them is small, one is medium and one is large. 
+Return true if the three values are evenly spaced, so the difference between small and medium 
+is the same as the difference between medium and large.
+evenlySpaced(2, 4, 6) → true
+evenlySpaced(4, 6, 2) → true
+evenlySpaced(4, 6, 3) → false
+*/
+
+public boolean evenlySpaced(int a, int b, int c) {
+double small;
+double medium;
+double large;
+if(a>b){
+  large = a;
+  small=b;
+  if(a>c){
+    if(b>c){small=c;medium=b;}
+    else {small=b;medium=c;}
+  }
+  else {
+    large = c;
+    medium=a;}
+  }
+  else {
+    large=c;
+    small=a;
+    if(b>c){
+      if(a>c){large=b;medium=a;small=c;}
+      else{large=b;medium=c;small=a;}
+    }
+    else {large=c;medium=b;small=a;}
+  }
+  return java.lang.Math.abs(large-medium)==java.lang.Math.abs(medium-small);
+}
+
